@@ -1,9 +1,7 @@
 # harp-bp
 ### Command line interface for creating new projects from scratch.
-#### Why?
-Often, starting a new project requires the same boilerplate code over and over.
-This is helpful if you want to create a project with a sane starting point and
-common defaults.
+#### Why? - Based in a text in harpjs.com
+> Often, starting a new project requires the same boilerplate code over and over. This is helpful if you want to create a project with a sane starting point and common defaults.
 
 ## Prerequisites
   1. [Node.js](https://nodejs.org)
@@ -19,6 +17,9 @@ npm install
 gulp
 ```
 Point your browser to http://localhost:3000
+
+## Live example
+Untouched [example](http://douggr.github.io/harp-bp) denerated by gulp build.
 
 ## Development Setup
 Bring up a terminal and type:
