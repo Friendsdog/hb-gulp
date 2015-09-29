@@ -1,12 +1,12 @@
 'use strict'
 
-var $           = require('gulp-load-plugins')()
+var $ = require('gulp-load-plugins')()
 var browserSync = require('browser-sync')
-var del         = require('del')
-var gulp        = require('gulp')
-var harp        = require('harp')
-var reload      = browserSync.reload
-var wiredep     = require('wiredep').stream
+var del = require('del')
+var gulp = require('gulp')
+var harp = require('harp')
+var reload = browserSync.reload
+var wiredep = require('wiredep').stream
 
 /**
  * Wire Bower dependencies to `public/_bower-*` files.
@@ -36,7 +36,7 @@ gulp.task('cdnify', function () {
     .pipe($.googleCdn(require('./bower.json'), {
       cdn: require('jsdelivr-cdn-data')
     }))
-    .pipe(gulp.dest('public/'));
+    .pipe(gulp.dest('public/'))
 })
 
 /**
@@ -47,10 +47,29 @@ gulp.task('clean', del.bind(null, ['dist', '.publish'], {dot: true}))
 /**
  * Export your site to flat static assets (HTML/CSS/JavaScript)
  */
-gulp.task('harp:compile', ['clean'], function () {
+gulp.task('harp:compile', function (cb) {
   harp.compile(__dirname, 'dist', function () {
     del('dist/bower_components', {
       force: true
+    })
+    .then(function () {
+      // Static asset revisioning appending content hash to assets
+      gulp
+        .src(['dist/assets/**/*.{js,css}'], {
+          base: 'assets'
+        })
+        .pipe($.rev())
+        .pipe(gulp.dest('dist'))
+        .pipe($.rev.manifest())
+        .pipe(gulp.dest('dist'))
+        .on('end', function () {
+          return gulp
+            .src(['dist/**/*.html'])
+            .pipe($.revReplace({
+              manifest: gulp.src('./dist/rev-manifest.json')
+            }))
+            .pipe(gulp.dest('dist/'))
+        })
     })
   })
 })
@@ -109,8 +128,8 @@ gulp.task('bump', function () {
     return
   }
 
-  var semver  = require('semver')
-  var pkg     = require('./package.json')
+  var semver = require('semver')
+  var pkg = require('./package.json')
   var version = semver.inc(pkg.version, $.util.env.r)
 
   gulp
