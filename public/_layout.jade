@@ -1,0 +1,23 @@
+doctype html
+html(lang="#{lang}")
+  head
+    //- header layout
+    != partial("/_includes/_head-inc")
+
+    //- bower includes
+    != partial("/_bower-stylesheet")
+
+    //- custom stylesheets
+    != partial("/_includes/_stylesheet")
+
+  body
+    != yield
+
+    //- footer layout
+    != partial("/_includes/_footer")
+
+    //- bower includes
+    != partial("/_bower-javascript")
+
+    //- custom javascripts (and social snippets)
+    != partial("/_includes/_javascript")

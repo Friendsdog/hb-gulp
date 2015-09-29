@@ -1,0 +1,65 @@
+# General
+## Cache files and common backup files
+*.cache
+*~
+
+# OSX
+.AppleDouble
+.DS_Store
+.LSOverride
+
+## Thumbnails
+._*
+
+## Files that might appear in the root of a volume
+.DocumentRevisions-*
+.fseventsd
+.Spotlight-*
+.TemporaryItems
+.Trashes
+.VolumeIcon.*
+
+## Directories potentially created on remote AFP share
+.apdisk
+.Apple*
+Network Trash Folder
+Temporary Items
+
+# Linux
+## KDE directory preferences
+.directory
+
+## Trash folder which might appear on any partition or disk
+.Trash-*
+
+# Editors / IDEs
+.project
+local.properties
+
+# Composer
+### Commit your application's lock file
+### http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
+composer.phar
+vendor
+
+# Zend Framework
+## Local configs
+*.local.php
+
+## Binary gettext files
+*.mo
+
+## Data
+data/cache
+data/logs
+data/sessions
+data/tmp
+temp
+
+# Node.js
+node_modules
+bower_components
+
+# Build files
+dist
+public/_bower-*

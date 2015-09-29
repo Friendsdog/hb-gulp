@@ -1,0 +1,11 @@
+//- begin: your javascript files
+if "production" == environment
+  script(defer src="/assets/js/app.#{version}.js")
+else
+  if public.assets.js
+    for script in public.assets.js._contents
+      script(defer src="/assets/js/#{script}")
+//- end: your javascript files
+
+//- social media snippets
+//- != partial("_social")
