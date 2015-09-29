@@ -8,7 +8,7 @@ common defaults.
 ## Prerequisites
   1. [Node.js](https://nodejs.org)
   2. [gulp](http://gulpjs.com)
-  3. [harp](http://harpjs.com) - optional
+  3. [Harp](http://harpjs.com) - optional
 
 ## tl;dr
 Open a terminal type the following:
