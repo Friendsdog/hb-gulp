@@ -1,5 +1,6 @@
 {
   "globals": {
+    "base_url": "/",
     "description": "",
     "keywords": "",
     "lang": "en",

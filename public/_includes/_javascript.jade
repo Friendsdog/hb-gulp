@@ -1,10 +1,8 @@
+//- bower includes
+!= partial("../_bower-javascript")
+
 //- begin: your javascript files
-if "production" == environment
-  script(defer src="/assets/js/app.js")
-else
-  if public.assets.js
-    for script in public.assets.js._contents
-      script(defer src="/assets/js/#{script}")
+script(defer src="assets/js/app.js")
 //- end: your javascript files
 
 //- social media snippets
