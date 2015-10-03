@@ -1,10 +1,9 @@
 {
   "globals": {
-    "base_url": "/",
-    "description": "",
-    "keywords": "",
+    "description": "A(nother) harp boilerplate",
     "lang": "en",
-    "title": "harp-bp",
+    "site_name": "Harp Boilerplate",
+    "site_url": "",
     "version": "0.0.1"
   }
 }
