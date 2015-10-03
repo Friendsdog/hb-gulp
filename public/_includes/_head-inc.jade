@@ -19,7 +19,10 @@ meta(property="og:description" content="#{description}")
 link(rel="manifest" href="#{base_url}manifest.json")
 
 //- page title
-title #{title}
+if "index" == current.path[0]
+  title #{title}
+else
+  title #{title} &middot; #{name}
 
 //- bower includes
 != partial("../_bower-stylesheet")
