@@ -1,44 +1,42 @@
-# harp-bp
-### Command line interface for creating new projects from scratch.
-#### Why? - Based in a text in harpjs.com
-> Often, starting a new project requires the same boilerplate code over and over. This is helpful if you want to create a project with a sane starting point and common defaults.
+# hb-gulp - Harp Boilerplate on Steroids
 
-## Prerequisites
-  1. [Node.js](https://nodejs.org)
-  2. [gulp](http://gulpjs.com)
-  3. [Harp](http://harpjs.com) - optional
+**A(nother) Harp Boilerplate; on steroids.** :godmode:
 
-## tl;dr
-Open a terminal type the following:
-```sh
-git clone https://github.com/douggr/harp-bp my-app
-cd my-app
+## Quickstart
+
+[Download](https://github.com/douggr/hp-gulp/archive/master.zip) or clone this repository and build:
+
+```shell
+git clone https://github.com/douggr/hp-gulp
+cd hp-gulp
+npm i -g gulp
 npm install
-gulp
-```
-Point your browser to http://localhost:3000
-
-## Live example
-Untouched [example](http://douggr.github.io/harp-bp) denerated by gulp build.
-
-## Development Setup
-Bring up a terminal and type:
-```sh
-git clone https://github.com/douggr/harp-bp my-app
-# or
-harp init my-app -b douggr/harp-bp
+gulp serve
 ```
 
-1. cd into `my-app`
-2. install local dependencies by running `npm install`
-3. run `gulp`
-4. open http://localhost:3000
+And finally, navigate to [http://localhost:3000](http://localhost:3000)
 
-## Preprocessors
-- Markdown
-- EJS
-- **Jade** (default)
-- LESS
-- **Sass** (default)
-- Stylus
-- CoffeeScript
+### Features
+
+#### Performance optimization with a build process powered by Gulp
+
+Minify and concatenate JavaScript, CSS, HTML and images to help keep your pages lean (even better than `harp compile`).
+
+#### Live Browser Reloading
+
+Reload the browser in real-time anytime an edit is made without the need for an extension (also better than `harp server`).
+
+#### Cross-device Synchronization
+
+Synchronize clicks, scrolls, forms and live-reload across multiple devices as you edit your project. Powered by [BrowserSync](http://browsersync.io).
+
+#### ES2015 Support
+
+Optional ES2015 support using [Babel](https://babeljs.io/). To disable ES2015 support uncomment the line `"only": "gulpfile.babel.js",` in the [.babelrc](.babelrc) file.
+
+#### Documentation
+  - Harp [docs](http://harpjs.com/docs/)
+  - The build pipeline is heavily based on [Google's Web Starter Kit](https://github.com/google/web-starter-kit)
+
+### Prerequisites
+Follow [this](https://github.com/google/web-starter-kit/blob/master/docs/install.md#prerequisites)

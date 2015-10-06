@@ -1,7 +1,6 @@
 doctype html
 html(lang="#{lang}")
   head
-    //- header layout
     != partial("/_includes/_head-inc")
 
   body
@@ -10,7 +9,6 @@ html(lang="#{lang}")
     main
       != yield
 
-    //- footer layout
     != partial("/_includes/_footer")
 
     //- custom javascripts (and social snippets)

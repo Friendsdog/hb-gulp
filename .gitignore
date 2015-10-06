@@ -1,8 +1,4 @@
-.DS_Store
-*~
+.tmp
 bower_components
-gulp-cache
+dist
 node_modules
-/dist
-/rev-manifest.json
-/public/_bower-*

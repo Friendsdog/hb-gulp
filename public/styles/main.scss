@@ -1,0 +1,22 @@
+//
+// @see http://codeguide.co/#css
+//;
+
+$preferred_font: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
+$text-color-primary: rgba(0,0,0, 0.87) !default;
+
+html, body {
+  color: $text-color-primary;
+  font-family: $preferred_font;
+  font-size: 6vh;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+body {
+  background-color: #1a82f7;
+  background-repeat: repeat-y;
+
+  background: gradient(linear, left top, right top, from(#1a82f7), to(#2F2727));
+  box-sizing: border-box;
+}
