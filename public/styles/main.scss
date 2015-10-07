@@ -2,13 +2,8 @@
 // @see http://codeguide.co/#css
 //;
 
-$preferred_font: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
-$text-color-primary: rgba(0,0,0, 0.87) !default;
-
 html, body {
-  color: $text-color-primary;
-  font-family: $preferred_font;
+  color: rgba(0,0,0, 0.87);
+  font-family: 'Open Sans', sans-serif;
   font-size: 6vh;
-  font-weight: 400;
-  line-height: 20px;
 }

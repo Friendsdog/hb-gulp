@@ -1,5 +1,15 @@
 meta(charset="utf-8")
 
+//- Prefetch DNS for external assets (fonts, twitter, fb, google, ads, etc)
+//- link(rel="dns-prefetch" href="")
+link(rel="dns-prefetch" href="//fonts.googleapis.com")
+
+//- Prerender work page
+if "index" == current.path[0]
+  link(rel="prerender" href="#{site_url}")
+else
+  link(rel="prerender" href="#{site_url}/#{current.path[0]}")
+
 if "index" == current.path[0]
   title #{site_name}
 else
