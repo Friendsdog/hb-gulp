@@ -178,7 +178,7 @@ gulp.task('serve', ['scripts', 'styles'], () => {
     gulp.watch(['public/images/**/*'], reload);
     gulp.watch(['public/scripts/**/*.js'], ['jshint', 'scripts']);
     gulp.watch(['public/styles/**/*.{scss,css}'], ['styles', reload]);
-  })
+  });
 });
 
 
