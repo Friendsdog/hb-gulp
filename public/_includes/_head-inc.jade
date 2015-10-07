@@ -1,4 +1,8 @@
 meta(charset="utf-8")
+meta(http-equiv="X-UA-Compatible" content="IE=edge")
+meta(name="referrer" content="origin")
+meta(name="viewport" content="width=device-width, initial-scale=1")
+link(rel="manifest" href="manifest.json")
 
 //- Prefetch DNS for external assets (fonts, twitter, fb, google, ads, etc)
 //- link(rel="dns-prefetch" href="")
@@ -15,11 +19,8 @@ if "index" == current.path[0]
 else
   title #{title || current.path[0]} &middot; #{site_name}
 
-meta(http-equiv="X-UA-Compatible" content="IE=edge")
 meta(name="description" content="#{description}")
 meta(name="robots" content="all")
-meta(name="referrer" content="origin")
-meta(name="viewport" content="width=device-width, initial-scale=1")
 
 meta(property="og:lang" content="#{lang}")
 meta(property="og:title" content="#{title}")
@@ -57,7 +58,6 @@ meta(name="theme-color" content="#3372DF")
 //- https://developers.google.com/webmasters/smartphone-sites/feature-phones
 //- link(rel="canonical" href="#{site_url}")
 
-link(rel="manifest" href="manifest.json")
 
 //- change this in harp.json
 if inlinecss
