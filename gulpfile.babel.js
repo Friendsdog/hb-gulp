@@ -45,11 +45,11 @@ gulp.task('images', () =>
 // Copy all files at the root level (public)
 gulp.task('copy', () =>
   gulp.src([
-    '!public/**/_*',
-    '!public/**/*.{html,jade}',
-    '!public/images',
     '.tmp/*.json',
-    'public/*',
+    // 'public/*',
+    // '!public/**/_*',
+    // '!public/**/*.{html,jade}',
+    // '!public/images',
     'node_modules/apache-server-configs/dist/.htaccess'
   ], {
     dot: true
@@ -102,29 +102,30 @@ gulp.task('styles', () => {
 
 
 // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
-// to enables ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
-// `.babelrc` file.
+// to disable ES2015 support, uncomment the line `"only": "gulpfile.babel.js",`
+// in the `.babelrc` file.
 gulp.task('scripts', () =>
-    gulp.src([
-      'public/scripts/**/*.js'
-    ])
-      .pipe($.sourcemaps.init())
-      .pipe($.babel())
-      .pipe($.sourcemaps.write())
-      .pipe(gulp.dest('.tmp/scripts'))
-      .pipe($.concat('main.min.js'))
-      .pipe($.uglify({ preserveComments: 'some' }))
+  gulp.src([
+    'public/scripts/**/*.js'
+  ])
+    .pipe($.newer('.tmp/scripts'))
+    .pipe($.sourcemaps.init())
+    .pipe($.babel())
+    .pipe($.sourcemaps.write())
+    .pipe(gulp.dest('.tmp/scripts'))
+    .pipe($.concat('main.min.js'))
+    .pipe($.uglify())
 
-      // Output files
-      .pipe($.sourcemaps.write('.'))
-      .pipe(gulp.dest('dist/scripts'))
-      .pipe($.size({ title: 'scripts' }))
+    // Output files
+    .pipe($.sourcemaps.write('.'))
+    .pipe(gulp.dest('dist/scripts'))
+    .pipe($.size({ title: 'scripts' }))
 );
 
 
 // Scan your HTML for assets & optimize them
 gulp.task('html', () => {
-  const assets = $.useref.assets({searchPath: '{.tmp}'});
+  const assets = $.useref.assets({ searchPath: '{.tmp}' });
 
   return gulp.src(['.tmp/**/*.html'])
     .pipe(assets)
