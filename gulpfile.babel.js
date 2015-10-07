@@ -45,10 +45,11 @@ gulp.task('images', () =>
 // Copy all files at the root level (public)
 gulp.task('copy', () =>
   gulp.src([
-    'public/*',
-    '!public/images',
-    '!public/**/*.{html,jade}',
     '!public/**/_*',
+    '!public/**/*.{html,jade}',
+    '!public/images',
+    '.tmp/*.json',
+    'public/*',
     'node_modules/apache-server-configs/dist/.htaccess'
   ], {
     dot: true
