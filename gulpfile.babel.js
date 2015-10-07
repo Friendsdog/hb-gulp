@@ -156,27 +156,29 @@ gulp.task('clean', cb => del([
 
 
 // Watch files for changes & reload (prefer our task over harp's)
-gulp.task('serve', ['scripts', 'styles'], () =>
- harp.server('.', { port: 9000 }, () => {
-   browserSync({
-     // This is annoying!
-     open: false,
-     notify: false,
-     // Run as an https by uncommenting 'https: true'
-     // Note: this uses an unsigned certificate which on first access
-     //       will present a certificate warning in the browser.
-     // https: true,
-     proxy: 'localhost:9000',
-     serveStatic: ['.tmp']
-   });
+gulp.task('serve', ['scripts', 'styles'], () => {
+  del('.tmp/**/*.html');
 
-   gulp.watch(['public/**/*.{jade,html}'], reload);
-   gulp.watch(['public/fonts/**/*'], reload);
-   gulp.watch(['public/images/**/*'], reload);
-   gulp.watch(['public/scripts/**/*.js'], ['jshint', 'scripts']);
-   gulp.watch(['public/styles/**/*.{scss,css}'], ['styles', reload]);
- })
-);
+  harp.server('.', { port: 9000 }, () => {
+    browserSync({
+      // This is annoying!
+      open: false,
+      notify: false,
+      // Run as an https by uncommenting 'https: true'
+      // Note: this uses an unsigned certificate which on first access
+      //       will present a certificate warning in the browser.
+      // https: true,
+      proxy: 'localhost:9000',
+      serveStatic: ['.tmp']
+    });
+
+    gulp.watch(['public/**/*.{jade,html}'], reload);
+    gulp.watch(['public/fonts/**/*'], reload);
+    gulp.watch(['public/images/**/*'], reload);
+    gulp.watch(['public/scripts/**/*.js'], ['jshint', 'scripts']);
+    gulp.watch(['public/styles/**/*.{scss,css}'], ['styles', reload]);
+  })
+});
 
 
 // Build and serve the output from the dist build
