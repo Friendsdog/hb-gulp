@@ -156,7 +156,7 @@ gulp.task('clean', cb => del([
 
 
 // Watch files for changes & reload (prefer our task over harp's)
-gulp.task('serve', ['scripts', 'styles'], () => {
+gulp.task('serve', ['scripts', 'styles'], () =>
  harp.server('.', { port: 9000 }, () => {
    browserSync({
      // This is annoying!
@@ -176,7 +176,7 @@ gulp.task('serve', ['scripts', 'styles'], () => {
    gulp.watch(['public/scripts/**/*.js'], ['jshint', 'scripts']);
    gulp.watch(['public/styles/**/*.{scss,css}'], ['styles', reload]);
  })
-})
+);
 
 
 // Build and serve the output from the dist build
@@ -195,7 +195,7 @@ gulp.task('serve:dist', ['default'], () =>
 
 
 //
-gulp.task('harp', ['styles'], cb =>
+gulp.task('harp', cb =>
   harp.compile('.', path.resolve('.tmp'), err => {
     if (err) {
       cb(err);
@@ -209,10 +209,9 @@ gulp.task('harp', ['styles'], cb =>
 // Build production files, the default task
 gulp.task('default', ['clean'], cb =>
   runSequence(
+    'styles',
     'harp',
-    ['jshint', 'scripts'],
-    // 'styles',
-    ['html', 'images', 'fonts', 'copy'],
+    ['jshint', 'html', 'scripts', 'images', 'fonts', 'copy'],
     'generate-service-worker',
     cb
   )
