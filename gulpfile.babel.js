@@ -106,8 +106,8 @@ gulp.task('styles', () => {
 // in the `.babelrc` file.
 gulp.task('scripts', () =>
   gulp.src([
-    'public/scripts/**/*.js'
-    'public/styles/**/*.js',
+    'public/scripts/**/*.js',
+    'public/styles/**/*.js'
   ])
     .pipe($.sourcemaps.init())
     .pipe($.babel())
