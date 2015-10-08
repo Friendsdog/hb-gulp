@@ -2,8 +2,19 @@
 // @see http://codeguide.co/#css
 //;
 
-html, body {
+@import "mixins";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
   color: rgba(0,0,0, 0.87);
   font-family: 'Open Sans', sans-serif;
-  font-size: 6vh;
+  font-weight: 300;
+  font-size: 100%/1.5;
+}
+
+html, body {
+  height: 100%;
 }

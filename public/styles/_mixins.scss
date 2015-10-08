@@ -1,0 +1,25 @@
+/* Create BEM elements (https://en.bem.info/method/definitions/#element) */
+@mixin bem-element($elements...) {
+  $selector: ();
+
+  @each $element in $elements {
+    $selector: append($selector, unquote("&__" + $element), comma);
+  }
+
+  #{$selector} {
+    @content;
+  }
+}
+
+/* Create BEM modifiers (https://en.bem.info/method/definitions/#modifiers) */
+@mixin bem-modifier($modifiers...) {
+  $selector: ();
+
+  @each $modifier in $modifiers {
+    $selector: append($selector, unquote("&--" + $modifier), comma);
+  }
+
+  #{$selector} {
+    @content;
+  }
+}
