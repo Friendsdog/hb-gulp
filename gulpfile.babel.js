@@ -107,8 +107,8 @@ gulp.task('styles', () => {
 gulp.task('scripts', () =>
   gulp.src([
     'public/scripts/**/*.js'
+    'public/styles/**/*.js',
   ])
-    .pipe($.newer('.tmp/scripts'))
     .pipe($.sourcemaps.init())
     .pipe($.babel())
     .pipe($.sourcemaps.write())
